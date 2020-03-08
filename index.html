@@ -161,7 +161,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2020/03/08/111/" class="post-title-link" itemprop="url">Hello World</a>
+            <a href="/2020/03/08/111/" class="post-title-link" itemprop="url">Hexo+Github博客搭建完全教程</a>
         </h1>
 
         <div class="post-meta">
@@ -172,7 +172,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-03-08 16:34:30 / 修改时间：16:38:10" itemprop="dateCreated datePublished" datetime="2020-03-08T16:34:30+08:00">2020-03-08</time>
+              <time title="创建时间：2020-03-08 16:34:30 / 修改时间：18:19:13" itemprop="dateCreated datePublished" datetime="2020-03-08T16:34:30+08:00">2020-03-08</time>
             </span>
 
           
@@ -186,8 +186,40 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2>
+          <p>前言<br>去年在博客园注册了自己的第一个博客，当时初衷就是想拿来作为自己的在线笔记本，做做学习记录，分享一些学到的东西，使用第三方提供的博客服务其实也挺方便，现在市面上提供类似服务的博客网站也很多，如CSDN，博客园，简书等平台，可以直接在上面发表，用户交互做的好，写的文章百度也能搜索的到。但是缺点是比较不自由，会受到平台的各种限制和恶心的广告，个性化不足。而自己购买域名和服务器，搭建博客的成本实在是太高了，不光是说这些购买成本，单单是花力气去自己搭这么一个网站，还要定期的维护它，对于我们大多数人来说，也是没有这样的精力和时间。那么，我们能不能自己定制一个自己喜欢的个性化博客，同时也不用付出太高的成本啦？</p>
+<p>这就引出了第三种选择，基于开源框架搭建博客，然后直接在github page平台上托管我们的博客。这样就可以安心的来写作，又不需要定期维护，基于这个想法，今年8月初的时候开始搭建第一个属于自己的独立博客，前后断续弄了近一周，到现在稍微有点模样了。我想可能有很多小伙伴应该也想过搭建一个自己的博客，当然，网上也有一堆详细教程。写这篇博客的目的大概有两个，第一个是当做自己的搭建记录，方便以后自己随时查看提示修改，第二个是稍稍总结一下具体的搭建步骤以及一些支持个性化定制的博客源码修改的教程，稍稍分享一下这些修改经验，当然，更多的一些个性化操作需要你自己以后在这个基础上慢慢去摸索，有些写的不太好的地方还希望看到的小伙伴多多包涵。</p>
+<p>博客初步的页面效果可以看一下我的博客：sunhwee.com，欢迎大家支持。</p>
+<p>本博客基于Hexo，所以首先要了解一下我们搭建博客所要用到的框架。Hexo是高效的静态网站生成框架，它基于Node.js，快速，简单且功能强大，是搭建博客的首选框架。大家可以进入hexo官网进行详细查看，因为Hexo的创建者是台湾人，对中文的支持很友好，可以选择中文进行查看。通过Hexo，你可以直接使用Markdown语法来撰写博客。相信很多小伙伴写工程都写过README.md文件吧，对，就是这个格式的！写完后只需两三条命令即可将生成的网页上传到github或者coding等代码管理托管平台，然后别人就可以浏览你的博客网页啦。是不是很简单？你无需关心网页源代码的具体生成细节，只需要用心写好你的博客文章内容就行了。</p>
+<p>简单总结：Hexo, 产品成熟，使用简单，功能强大，有丰富的各种插件资源；但，像发布后台、站内搜索，评论系统类似诉求，虽然有对应的工具，但也需要自己折腾下，后续我们一步一步介绍。</p>
+<p>教程大致分三个部分，</p>
+<p>第一部分：hexo的初级搭建还有部署到github page上，以及个人域名的绑定。<br>第二部分：hexo的基本配置，更换主题，实现多终端工作，以及在coding page部署实现国内外分流<br>第三部分：hexo添加各种功能，包括搜索的SEO，阅读量统计，访问量统计和评论系统等。<br>第一部分 搭建<br>hexo的初级搭建还有部署到github page上，以及个人域名的绑定。</p>
+<p>Hexo搭建步骤<br>1.安装Git<br>2.安装Node.js<br>3.安装Hexo<br>4.GitHub创建个人仓库<br>5.生成SSH添加到GitHub<br>6.将hexo部署到GitHub<br>7.设置个人域名<br>8.发布文章</p>
+<ol>
+<li>安装Git<br>为了把本地的网页文件上传到github上面去，需要用到工具———Git[下载地址]。Git是目前世界上最先进的分布式版本控制系统，可以有效、高速的处理从很小到非常大的项目版本管理。Git非常强大，建议每个人都去了解一下。廖雪峰老师的Git教程写的非常好，大家可以看一下。Git教程</li>
+</ol>
+<p>windows：到git官网上下载.exe文件,Download git,安装选项还是全部默认，只不过最后一步添加路径时选择Use Git from the Windows Command Prompt，这样我们就可以直接在命令提示符里打开git了。</p>
+<p>顺便说一下，windows在git安装完后，就可以直接使用git bash来敲命令行了，不用自带的cmd，cmd有点难用。</p>
+<p>linux：对linux来说实在是太简单了，因为最早的git就是在linux上编写的，只需要一行代码</p>
+<p>sudo apt-get install git<br>Bash<br>安装完成后在命令提示符中输入git –version来查看一下版本验证是否安装成功。</p>
+<ol start="2">
+<li>安装nodejs<br>Hexo是基于node.js编写的，所以需要安装一下node.js和里面的npm工具。</li>
+</ol>
+<p>windows：下载稳定版或者最新版都可以Node.js，安装选项全部默认，一路点击Next。<br>最后安装好之后，按Win+R打开命令提示符，输入node -v和npm -v，如果出现版本号，那么就安装成功了。</p>
+<p>linux：命令行安装：</p>
+<p>sudo apt-get install nodejs<br>sudo apt-get install npm<br>Bash<br>不过不推荐命令行安装，有时候有问题，建议直接到官网去下载编译好的压缩文件，如下所示:</p>
+<p>然后解压到你指定的文件夹即可，比如我解压到我系统的/home/shw/MySoftwares目录下了，如图:</p>
+<p>注意本压缩包是.tar.xz格式的，需要两次解压</p>
+<p>配置一下环境变量</p>
+<p>sudo vim /etc/profile<br>Bash<br>复制下面两行到刚打开的profile文件最底部(注意node的安装地址/home/shw/MySoftwares/node-v12.8.0-linux-x64换成自己的)：</p>
+<p>export NODE_HOME=/home/shw/MySoftwares/node-v12.8.0-linux-x64<br>export PATH=$PATH:$NODE_HOME/bin<br>Bash<br>保存后退出，再执行下面命令将环境变量生效：</p>
+<p>source /etc/profile<br>Bash<br>将目录软链接到全局环境下（命令后面的/usr/local/bin/node是固定的）</p>
+<p>sudo ln -s /home/shw/MySoftwares/node-v12.8.0-linux-x64/node /usr/local/bin/node<br>sudo ln -s /home/shw/MySoftwares/node-v12.8.0-linux-x64/npm /usr/local/bin/npm<br>Bash<br>这样安装好了以后使用npm安装的包(比如：ionic serve)，使用包的命令时可能会提示找不到命令，没关系，在用户目录下终端执行下面命令固定写法：</p>
+<p>echo -e “export PATH=$(npm prefix -g)/bin:$PATH” &gt;&gt; ~/.bashrc &amp;&amp; source ~/.bashrc<br>Bash<br>这样我们在所有用户下，都可以使用npm，也可以使用npm安装的包的命令。成功的将nodejs安装并配置到全局环境下。</p>
+<p>安装完后，打开命令行终端，输入:</p>
+<p>node -v<br>npm -v<br>Bash<br>检查一下有没有安装成功</p>
+<p>添加国内镜像源<br>如果没有梯子的话，可以使用阿里的国内镜像进行加速。</p>
+<p>npm config set registry <a href="https://registry.npm.taobao.org" target="_blank" rel="noopener">https://registry.npm.taobao.org</a></p>
+
       
     </div>
 
